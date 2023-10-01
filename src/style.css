@@ -111,25 +111,31 @@ main.container {
   color: var(--primary-color-active);
   font-style: italic;
 }
-.temperature-info {
+.info-card {
   align-self: flex-start;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-.temperature-image img {
-  min-width: 100px;
-  min-height: 100px;
+.card-image {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+}
+.card-image img {
   padding: 40px;
 }
-.temperature .amount {
+.card-stats .amount {
   font-size: 90px;
   font-weight: bolder;
 }
-.temperature {
+.card-stats {
   display: flex;
 }
-.temperature .scale {
+.card-stats .scale {
   font-size: 25px;
   color: var(--primary-color-active);
 }

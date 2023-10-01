@@ -1,12 +1,14 @@
 import './style.css';
-const temperature = document.querySelector('.temperature .amount');
+const temperature = document.querySelector('.info-card .card-stats .amount');
 const locationName = document.querySelector('.location .name');
 const locationRegion = document.querySelector('.location .region');
 const locationCountry = document.querySelector('.location .country');
-const weatherInfo = document.querySelector('.weather-info');
+const weatherInfo = document.querySelector('.info-card .card-info');
 const searchInput = document.querySelector('.search .input');
-const weatherImage = document.querySelector('.temperature-image img');
-console.log(weatherImage);
+const weatherImage = document.querySelector('.info-card .card-image img');
+const humidityNumber = document.querySelector('.humidity .card-stats .amount');
+const humidityInfo = document.querySelector('.humidity .card-info');
+console.log(humidityInfo);
 const API_KEY = 'fbaf5237221c4603adf154400232809';
 const requestWeatherData = async (location) => {
   const response = await fetch(
@@ -14,6 +16,17 @@ const requestWeatherData = async (location) => {
     { mode: 'cors' },
   );
   return response.json();
+};
+const getHumidityInfo = (amount) => {
+  if (amount <= 20) {
+    return 'Too dry';
+  }
+  if (amount <= 60) {
+    return 'Comfortable';
+  }
+  if (amount <= 100) {
+    return 'Too wet';
+  }
 };
 const displayWeatherData = (location) => {
   requestWeatherData(location).then((response) => {
@@ -24,6 +37,8 @@ const displayWeatherData = (location) => {
     locationCountry.innerText = response.location.country;
     weatherInfo.innerText = response.current.condition.text;
     weatherImage.src = response.current.condition.icon;
+    humidityNumber.innerText = response.current.humidity;
+    humidityInfo.innerText = getHumidityInfo(response.current.humidity);
   });
 };
 displayWeatherData('lebanon');
