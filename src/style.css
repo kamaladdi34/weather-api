@@ -29,7 +29,7 @@
   --primary-padding: 20px;
 }
 body {
-  background-color: var(--primary-color-light);
+  background-color: var(--primary-color-darker);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -39,7 +39,6 @@ body {
   gap: 25px;
 }
 main.container {
-  background-color: var(--primary-color-dark);
   width: min(fit-content, 100%);
   height: fit-content;
   border-radius: var(--primary-border-radius);
