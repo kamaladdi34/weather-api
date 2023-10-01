@@ -32,9 +32,11 @@ body {
   background-color: var(--primary-color-light);
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  gap: 25px;
 }
 main.container {
   background-color: var(--primary-color-dark);
@@ -54,12 +56,25 @@ main.container {
   display: flex;
   height: 100px;
   align-items: center;
-  width: min(912px, 100svw);
-  border-bottom: 1px solid var(--primary-color-active-2);
+  width: min(912px, 100%);
+  background-color: var(--primary-color-dark);
+  border-radius: 1000px;
+}
+.search-icon {
+  font-size: 35px;
+  width: 70px;
+  height: 70px;
+  background-color: var(--primary-color-light);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
 }
 .input {
   flex-grow: 1;
   font-size: 45px;
+  padding-left: 50px;
 }
 .input::placeholder {
   color: var(--primary-color-text);
