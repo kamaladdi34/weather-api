@@ -5,6 +5,8 @@ const locationRegion = document.querySelector('.location .region');
 const locationCountry = document.querySelector('.location .country');
 const weatherInfo = document.querySelector('.weather-info');
 const searchInput = document.querySelector('.search .input');
+const weatherImage = document.querySelector('.temperature-image img');
+console.log(weatherImage);
 const API_KEY = 'fbaf5237221c4603adf154400232809';
 const requestWeatherData = async (location) => {
   const response = await fetch(
@@ -21,6 +23,7 @@ const displayWeatherData = (location) => {
     locationRegion.innerText = response.location.region;
     locationCountry.innerText = response.location.country;
     weatherInfo.innerText = response.current.condition.text;
+    weatherImage.src = response.current.condition.icon;
   });
 };
 displayWeatherData('lebanon');

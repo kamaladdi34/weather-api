@@ -60,6 +60,7 @@ main.container {
   background-color: var(--primary-color-dark);
   border-radius: 1000px;
   overflow: hidden;
+  padding: 10px;
 }
 .search-icon {
   font-size: 35px;
@@ -70,7 +71,6 @@ main.container {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 10px;
   flex-shrink: 0;
 }
 .input {
@@ -116,8 +116,10 @@ main.container {
   align-items: center;
   flex-direction: column;
 }
-.temperature-image {
-  font-size: 125px;
+.temperature-image img {
+  min-width: 100px;
+  min-height: 100px;
+  padding: 40px;
 }
 .temperature .amount {
   font-size: 90px;
