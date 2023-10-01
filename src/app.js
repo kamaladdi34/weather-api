@@ -12,7 +12,10 @@ const windSpeedNumber = document.querySelector(
   '.wind-speed .card-stats .amount',
 );
 const windSpeedInfo = document.querySelector('.wind-speed .card-info');
-console.log(humidityInfo);
+const airQualityNumber = document.querySelector(
+  '.air-quality .card-stats .amount',
+);
+const airQualityInfo = document.querySelector('.air-quality .card-info');
 const API_KEY = 'fbaf5237221c4603adf154400232809';
 const requestWeatherData = async (location) => {
   const response = await fetch(
@@ -63,6 +66,23 @@ const getWindSpeedInfo = (speed) => {
     return 'Hurricane force';
   }
 };
+const getAirQualityInfo = (value) => {
+  if (value <= 1) {
+    return 'Good air quality';
+  }
+  if (value <= 3) {
+    return 'Decent air quality';
+  }
+  if (value <= 5) {
+    return 'Bad air quality';
+  }
+  if (value <= 8) {
+    return 'Really bad air quality';
+  }
+  if (value <= 10) {
+    return 'Extremly bad air quality';
+  }
+};
 const displayWeatherData = (location) => {
   requestWeatherData(location).then((response) => {
     console.log(response);
@@ -76,6 +96,11 @@ const displayWeatherData = (location) => {
     humidityInfo.innerText = getHumidityInfo(response.current.humidity);
     windSpeedNumber.innerText = response.current.wind_kph;
     windSpeedInfo.innerText = getWindSpeedInfo(response.current.wind_kph);
+    console.log(response.current.air_quality);
+    airQualityNumber.innerText = response.current.air_quality['gb-defra-index'];
+    airQualityInfo.innerText = getAirQualityInfo(
+      response.current.air_quality['gb-defra-index'],
+    );
   });
 };
 displayWeatherData('lebanon');
