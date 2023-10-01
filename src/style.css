@@ -1,0 +1,115 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  color: var(--primary-color-text);
+}
+:root {
+  --primary-color-dark: #0b0c1eff;
+  --primary-color-darker: rgb(5, 5, 12);
+  --primary-color-light: #151638ff;
+  --primary-color-lighter: #171829ff;
+  --primary-color-active: #0095ffff;
+  --primary-color-outline: #919199ff;
+  --primary-color-active-2: rgb(255, 187, 0);
+  --primary-color-text: #ffffffff;
+  --primary-border-radius: 2rem;
+  --primary-padding: 20px;
+}
+body {
+  background-color: var(--primary-color-light);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+main.container {
+  background-color: var(--primary-color-dark);
+  width: min(1200px, 100svw);
+  height: 90svh;
+  border-radius: var(--primary-border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--primary-padding);
+}
+.search > * {
+  border: none;
+  background-color: transparent;
+}
+.search {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  width: min(912px, 100svw);
+  border-bottom: 1px solid var(--primary-color-active-2);
+}
+.input {
+  flex-grow: 1;
+  font-size: 45px;
+}
+.input::placeholder {
+  color: var(--primary-color-text);
+}
+.input:focus,
+.input:active {
+  border: none;
+  outline: none;
+}
+.main-info {
+  align-self: stretch;
+  padding: var(--primary-padding);
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+.location {
+  font-size: 45px;
+  text-align: center;
+  padding: var(--primary-padding);
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+}
+.location .region {
+  font-size: 18px;
+  font-style: italic;
+}
+.location .country {
+  font-size: 18px;
+  color: var(--primary-color-active);
+  font-style: italic;
+}
+.temperature-info {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.temperature-image {
+  font-size: 125px;
+}
+.temperature .amount {
+  font-size: 90px;
+  font-weight: bolder;
+}
+.temperature {
+  display: flex;
+}
+.temperature .scale {
+  font-size: 25px;
+  color: var(--primary-color-active);
+}
