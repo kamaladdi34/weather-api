@@ -32,23 +32,26 @@ const requestWeatherData = async (location) => {
 };
 
 const displayWeatherData = (location) => {
-  requestWeatherData(location).then((response) => {
-    setTemperature(response.current.temp_c, !temperatureToggle.checked);
-    temperatureC = response.current.temp_c;
-    locationName.innerText = response.location.name;
-    locationRegion.innerText = response.location.region;
-    locationCountry.innerText = response.location.country;
-    weatherInfo.innerText = response.current.condition.text;
-    weatherImage.src = response.current.condition.icon;
-    humidityNumber.innerText = response.current.humidity;
-    humidityInfo.innerText = getHumidityInfo(response.current.humidity);
-    windSpeedNumber.innerText = response.current.wind_kph;
-    windSpeedInfo.innerText = getWindSpeedInfo(response.current.wind_kph);
-    airQualityNumber.innerText = response.current.air_quality['gb-defra-index'];
-    airQualityInfo.innerText = getAirQualityInfo(
-      response.current.air_quality['gb-defra-index'],
-    );
-  });
+  requestWeatherData(location)
+    .then((response) => {
+      setTemperature(response.current.temp_c, !temperatureToggle.checked);
+      temperatureC = response.current.temp_c;
+      locationName.innerText = response.location.name;
+      locationRegion.innerText = response.location.region;
+      locationCountry.innerText = response.location.country;
+      weatherInfo.innerText = response.current.condition.text;
+      weatherImage.src = response.current.condition.icon;
+      humidityNumber.innerText = response.current.humidity;
+      humidityInfo.innerText = getHumidityInfo(response.current.humidity);
+      windSpeedNumber.innerText = response.current.wind_kph;
+      windSpeedInfo.innerText = getWindSpeedInfo(response.current.wind_kph);
+      airQualityNumber.innerText =
+        response.current.air_quality['gb-defra-index'];
+      airQualityInfo.innerText = getAirQualityInfo(
+        response.current.air_quality['gb-defra-index'],
+      );
+    })
+    .catch((error) => console.log(error));
 };
 displayWeatherData('lebanon');
 document.addEventListener('keydown', (event) => {
