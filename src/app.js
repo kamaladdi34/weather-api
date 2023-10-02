@@ -29,10 +29,10 @@ const getHumidityInfo = (amount) => {
     return 'Too dry';
   }
   if (amount <= 60) {
-    return 'Comfortable';
+    return 'Comfortable humidity';
   }
   if (amount <= 100) {
-    return 'Too wet';
+    return 'Too humid';
   }
 };
 const getWindSpeedInfo = (speed) => {
