@@ -31,6 +31,8 @@
 body {
   background-color: var(--primary-color-darker);
   min-height: 100vh;
+  max-width: 1200px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -141,4 +143,45 @@ main.container {
 .card-stats .scale {
   font-size: 25px;
   color: var(--primary-color-active);
+}
+.switch {
+  --switch-width: 90px;
+  --swtich-height: 40px;
+  width: var(--switch-width);
+  height: var(--swtich-height);
+  position: relative;
+  border-radius: var(--primary-border-radius);
+  align-self: flex-end;
+}
+.switch input {
+  display: none;
+}
+.switch input,
+.switch div {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+.switch div {
+  background-color: var(--primary-color-lighter);
+  border-radius: var(--primary-border-radius);
+}
+.switch div::after {
+  background-color: var(--primary-color-active);
+  width: var(--swtich-height);
+  height: var(--swtich-height);
+  border-radius: var(--primary-border-radius);
+  position: absolute;
+  content: '°C';
+  top: 0;
+  right: calc(var(--switch-width) - var(--swtich-height));
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.switch input:checked + div::after {
+  right: 0px;
+  content: '°F';
 }
